@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--打印数据库操作-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--这个为mybatis 的配置文件-->
+    <!--本来需要配置数据源，但是和spring整合之后，交给spring去做-->
+
+    <!--取别名-->
+    <typeAliases>
+        <package name="com.xiaohaha.pojo"/>
+    </typeAliases>
+
+    <!--把mapper绑定起来-->
+    <mappers>
+        <mapper class="com.xiaohaha.dao.BookMapper"></mapper>
+    </mappers>
+
+
+</configuration>

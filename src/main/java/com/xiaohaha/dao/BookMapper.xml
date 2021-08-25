@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--一个mapper，对应一个接口-->
+<!--parameterType对应传入的数据类型，resultType表示返回的数据类型-->
+<mapper namespace="com.xiaohaha.dao.BookMapper">
+    <insert id="addBook" parameterType="Books">
+        insert into ssmbuild.books (bookName, bookCounts, detail) values (#{bookName},#{bookCounts},#{detail});
+    </insert>
+
+    <!--此处parameterMap="int"里的int会自动转换成integer,只有写成_int才是真正的int-->
+    <delete id="deleteBookById" parameterType="int">
+        delete from ssmbuild.books where bookID=#{bookId}
+    </delete>
+
+    <update id="updateBook" parameterType="Books">
+        update ssmbuild.books set bookName=#{bookName},bookCounts=#{bookCounts},detail=#{detail} where bookID=#{bookID}
+    </update>
+
+    <select id="queryBookById" resultType="Books">
+        select * from ssmbuild.books where bookID=#{bookId}
+    </select>
+
+    <select id="queryAllBook" resultType="Books">
+        select * from ssmbuild.books
+    </select>
+
+    <select id="queryBookByName" resultType="Books">
+        select * from ssmbuild.books where bookName=#{bookName}
+    </select>
+</mapper>
